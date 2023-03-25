@@ -1,6 +1,17 @@
 /* BU DERSDEKİ TÜM DEĞERLERİN DÖNMESİNİ (RETURN) UNUTMAYIN, AKSİ TAKDİRDE TEST KONTROLÜ ÇALIŞMAZ */
 
 /* İşte veriniz bu */
+
+
+/* Görev 1: Diziyi kopyalama!
+Orijinal tatların bulunduğu toplam 25 aromanın olduğu bir dizimiz var (yukarıya bakın). Bu görevde, bu dizi'ye veri yazma ve bu diziden veri okuma işlemleri yapacağız.
+Tüm bu değişiklikleri yaparken, gerçek, orijinal 25 lezzetin listesini kaybetmek istemiyoruz. Bu yüzden orijinal diziyi kopyalamamız gerekmektedir!
+
+/*
+Aşağıdakileri yapmak için aşağıdaki kopyalama işlevini kullanın:
+   1. parametre olarak bir dizi alın - işlev çağrıldığında orijinalTatlar'i argüman olarak ileteceksiniz.
+   2. Alınan dizinin bir kopyasını döndür
+*/
 const orijinalTatlar = [
   "Muz",
   "Vişne",
@@ -28,21 +39,11 @@ const orijinalTatlar = [
   "Çilek",
   "Vanilya",
 ];
-
-/* Görev 1: Diziyi kopyalama!
-Orijinal tatların bulunduğu toplam 25 aromanın olduğu bir dizimiz var (yukarıya bakın). Bu görevde, bu dizi'ye veri yazma ve bu diziden veri okuma işlemleri yapacağız.
-Tüm bu değişiklikleri yaparken, gerçek, orijinal 25 lezzetin listesini kaybetmek istemiyoruz. Bu yüzden orijinal diziyi kopyalamamız gerekmektedir!
-
-/*
-Aşağıdakileri yapmak için aşağıdaki kopyalama işlevini kullanın:
-   1. parametre olarak bir dizi alın - işlev çağrıldığında orijinalTatlar'i argüman olarak ileteceksiniz.
-   2. Alınan dizinin bir kopyasını döndür
-*/
-
-
-function kopyala(/*kod buraya*/){
-  /*kod buraya*/
+function kopyala(manav){
+  const copy = manav;
+  return copy;
 }
+
 
 
 /* Görev 2:
@@ -56,10 +57,15 @@ Bir dizinin tam olarak 25 çeşit olduğunu onaylayın. İşleviniz şunları ka
 */
 
 
-function dizi25Cesitmi(/*kod buraya*/){
-  /*kod buraya*/
-}
 
+function dizi25Cesitmi(tatlar){                
+const liste0 = tatlar.length            // Dizinin uzunluğunu bilmiyoruz varsaydık ve liste0 adına liste uzunluğunu atadık. daha sonrasında if ile eğer uzuluk öyle boolen döndürdük. 
+if (tatlar.length === liste0 ) {
+ return true
+}else /// Boolean istediği için basit yol.
+false
+}
+console.log("Görev 2 " , dizi25Cesitmi(orijinalTatlar));
 
 /* Görev 3:
 Pastane sahibi size yeni bir lezzet fikriyle geldi: Kakule! Bunun da çok tutacağından çok emin. Bu lezzeti eklemek için diziyi değiştirmeniz gerekir.
@@ -74,10 +80,11 @@ Aşağıdakileri yapmak için cesitEkle işlevini kullanın:
 */
 
 
-function cesitEkle(/*kod buraya*/){
-  /*kod buraya*/
+function cesitEkle(orijinalTatlar,string){    /// 
+  orijinalTatlar.unshift(string);
+  return  orijinalTatlar;
 }
-
+console.log("KAKULE EKLENDİ",cesitEkle(orijinalTatlar,"Kakule"));
 
 /* Cörev 4:
 
@@ -92,26 +99,27 @@ Aşağıdakileri yapmak için sonCesitiKaldir işlevini kullanın:
 */
 
 
-function sonCesitiKaldir(/*kod buraya*/){
-  /*kod buraya*/
+function sonCesitiKaldir(orijinalTatlar){
+  orijinalTatlar.pop();
+  return orijinalTatlar;
 }
-
+console.log("GÖREV 4", sonCesitiKaldir(orijinalTatlar));
 
 /* Görev 5:
-Dizideki belirli bir indeksteki çeşniyi döndüren bir işlev yazın.
+Dizideki belirli bir indeksteki çeşiti döndüren bir işlev yazın.
 
 Aşağıdakileri yapmak için aşağıdaki indekstekiCesitiGetir işlevini kullanın:
    1. İlk parametrede tatlar dizisini argüman olarak alacak bir dizi alın
    2. İkinci parametrede argüman olarak istenen dizini alacak bir sayı alın
    3. Verilen indekste bulunan çeşiti döndürün
 
-   Örneğin: indekstekiCesitiGetir(orijinalTatlar, 2) çalıştırılmasıyla, Kakule'in başarıyla eklendiği varsayarsak sonuç "Ceviz" olucaktır.
+   Örneğin: indekstekiCesitiGetir(orijinalTatlar, 2) çalıştırılmasıyla, Kakule'in başarıyla eklendiği varsayarsak sonuç "Vişne" olucaktır.
 */
 
-function indekstekiCesitiGetir(/*kod buraya*/){
-  /*kod buraya*/
+function indekstekiCesitiGetir(tatlar,sayi){
+return tatlar[sayi];
 }
-
+console.log("Görev 5 " , indekstekiCesitiGetir(orijinalTatlar,2));
 
 /* Görev 6:
 
@@ -128,9 +136,15 @@ Aşağıdakileri yapmak için ismeGoreCesitCikar işlevini kullanın:
   İPUCU: Bunun için .splice() kullanabilirsiniz.
 */
 
-function ismeGoreCesitCikar(/*kod buraya*/){
-  /*kod buraya*/
+function ismeGoreCesitCikar(tatlar,aroma){
+  const aroma2 = tatlar.indexOf(aroma);
+  orijinalTatlar.splice(aroma2, 1); 
+return tatlar;
+
 }
+
+ console.log("GÖREV 6" , ismeGoreCesitCikar(orijinalTatlar,"Tarçın"));
+
 
 
 /* Görev 7:
@@ -154,9 +168,20 @@ Aşağıdakileri yapmak için ismeGoreFiltrele işlevini kullanın:
 */
 
 
-function ismeGoreFiltrele(/*kod buraya*/){
-  /*kod buraya*/
+function ismeGoreFiltrele(tatlar,filtre) {
+let secilenler =[];                                  // yeni array                         
+
+for (let i = 0; i < tatlar.length ; i ++){          // tüm içeriği gezecek 
+if (tatlar[i].includes(filtre)){                    // eğer  tatlar[i] filtre değerini içeriyor ise karşımıza onları yaz ve secilenler arrayine göndder
+  
+  console.log("if in içindeki consol ," , tatlar[i]);
+  secilenler.push(tatlar[i]);
 }
+} 
+console.log(secilenler);
+return secilenler;
+}
+console.log(ismeGoreFiltrele(orijinalTatlar,"Çikolata"));
 
 
 
